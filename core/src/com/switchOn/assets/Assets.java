@@ -34,3 +34,16 @@ public class Assets {
 
 	
 }
+
+/*
+
+freetype 
+https://github.com/libgdx/libgdx/wiki/Gdx-freetype
+
+exemple
+https://bitbucket.org/dermetfan/blackpoint2/src/21c010c6da76113ff4f7a374743626483b81c23a/Blackpoint2-android/assets/font/?at=default
+
+app
+https://github.com/Leakedbits/Codelabs
+
+*/

@@ -1,0 +1,19 @@
+
+testPack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+test1
+  rotate: false
+  xy: 1, 1
+  size: 156, 68
+  orig: 156, 68
+  offset: 0, 0
+  index: -1
+test2
+  rotate: false
+  xy: 159, 1
+  size: 156, 68
+  orig: 156, 68
+  offset: 0, 0
+  index: -1
