@@ -1,0 +1,19 @@
+
+mainMenu.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+menuButton
+  rotate: false
+  xy: 1, 1
+  size: 201, 73
+  orig: 201, 73
+  offset: 0, 0
+  index: -1
+menuButtonHov
+  rotate: false
+  xy: 204, 1
+  size: 201, 73
+  orig: 201, 73
+  offset: 0, 0
+  index: -1
