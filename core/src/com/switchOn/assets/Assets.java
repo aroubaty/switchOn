@@ -90,6 +90,12 @@ public class Assets {
 			Sprite newComp = compAtlas.createSprite(compType.toString());
 			compLoaded.put(compType, newComp);
 		}
+		
+		
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("font/Calibri.ttf"));
+		FreeTypeFontParameter param = new FreeTypeFontParameter();
+		param.size = 12;
+		font12 = generator.generateFont(param); 
 	}
 	
 	public static Texture loadTexture (String file) {

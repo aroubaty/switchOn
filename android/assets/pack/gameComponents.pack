@@ -6,14 +6,14 @@ repeat: none
 relayPoint
   rotate: false
   xy: 1, 1
-  size: 200, 200
-  orig: 200, 200
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 startLaser
   rotate: false
-  xy: 203, 1
-  size: 200, 200
-  orig: 200, 200
+  xy: 53, 1
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
