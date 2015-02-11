@@ -6,4 +6,9 @@ public class Finals {
 	
 	//levelMap
 	public static final int MAP_PER_WORLD = 9;
+	
+	//Ingame component
+	public static enum COMPONENT_TYPE {
+		startLaser, relayPoint
+	}
 }

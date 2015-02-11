@@ -1,0 +1,14 @@
+<level>
+	<background>
+		bgMenu.png
+	</background>
+	<used>
+		0,1
+	</used>
+
+	<components>
+		<component id="0" x="100" y="100" rotation="0" ></component>
+		<component id="1" x="300" y="550" rotation="0" ></component>
+		<component id="1" x="1000" y="40" rotation="0" ></component>
+	</components>
+</level>

@@ -1,12 +1,17 @@
 package com.switchOn.assets;
 
-import com.badlogic.gdx.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.freetype.*;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.switchOn.finals.Finals;
 
 
 public class Assets {
@@ -23,6 +28,7 @@ public class Assets {
 	public Texture bg;
 	public BitmapFont font12;
 	public Skin skin;
+	public Map<Finals.COMPONENT_TYPE, Sprite> compLoaded;
 	
 	private Assets(){
 	}
@@ -70,6 +76,20 @@ public class Assets {
 		skin.add("caliButton", caliButton, BitmapFont.class);
 		skin.addRegions(new TextureAtlas(Gdx.files.internal("pack/mainMenu.pack")));
 		skin.load(Gdx.files.internal("pack/mainMenu.json"));
+	}
+	
+	public void loadLevel(String bg, String[] compToLoad){
+		this.bg = loadTexture("background/" + bg);
+		compLoaded = new HashMap<Finals.COMPONENT_TYPE, Sprite>();
+		
+		TextureAtlas compAtlas = new TextureAtlas(Gdx.files.internal("pack/gameComponents.pack"));
+		
+		for(int i = 0; i < compToLoad.length; i ++){
+			Finals.COMPONENT_TYPE compType = Finals.COMPONENT_TYPE.values()[Integer.parseInt(compToLoad[i])];
+
+			Sprite newComp = compAtlas.createSprite(compType.toString());
+			compLoaded.put(compType, newComp);
+		}
 	}
 	
 	public static Texture loadTexture (String file) {
