@@ -36,7 +36,9 @@ public class XmlParser {
 						Finals.COMPONENT_TYPE.values()[crt.getInt("id")],
 						crt.getInt("x"), 
 						crt.getInt("y"), 
-						crt.getInt("rotation")));
+						crt.getInt("rotation"),
+						crt.getInt("width"),
+						crt.getInt("height")));
 				
 			}
 			

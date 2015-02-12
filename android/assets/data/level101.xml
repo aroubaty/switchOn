@@ -7,8 +7,8 @@
 	</used>
 
 	<components>
-		<component id="0" x="100" y="100" rotation="0" ></component>
-		<component id="1" x="300" y="550" rotation="0" ></component>
-		<component id="1" x="1000" y="40" rotation="0" ></component>
+		<component id="0" x="100" y="100" rotation="0" width="50" height="50" ></component>
+		<component id="1" x="300" y="550" rotation="0" width="50" height="50"></component>
+		<component id="1" x="1000" y="40" rotation="0" width="50" height="50"></component>
 	</components>
 </level>
