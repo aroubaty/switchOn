@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -86,7 +87,6 @@ public class Laser {
 		for(int i = 0; i < compFree.size; i ++){
 			if(compFree.get(i).hitBox.contains(touchPoint.x, touchPoint.y)){
 				indexHit = i;
-				Gdx.app.log("touche ", "fjfdj");
 				break;
 			}
 		}
@@ -99,6 +99,16 @@ public class Laser {
 		
 		deltaLaserDiplay = 5;
 		viewPort.project(touchPoint);
+	}
+	
+	public Array<Vector2> getLaserPath(){
+		Array<Vector2> path = new Array<Vector2>();
+		
+		for(Component comp : compLink){
+			path.add(new Vector2(comp.x + comp.width/2, comp.y + comp.height/2));
+		}
+		
+		return path;
 	}
 	
 }
