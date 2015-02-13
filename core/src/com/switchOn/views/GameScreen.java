@@ -17,6 +17,7 @@ import com.switchOn.assets.XmlParser;
 import com.switchOn.finals.Finals;
 import com.switchOn.gameModele.Component;
 import com.switchOn.gameModele.Laser;
+import com.switchOn.gameModele.WinBox;
 
 public class GameScreen extends ScreenAdapter {
 	// Loading classes
@@ -30,10 +31,19 @@ public class GameScreen extends ScreenAdapter {
 
 	// Line
 	private Laser laser;
+	
+	// winBox
+	private WinBox winBox;
 
 	// Debug classes
 	private String gestureInfo;
 	private String gestureInfo2;
+	
+	private gameStatus status;
+	
+	private enum gameStatus {
+		running, end
+	}
 
 	public GameScreen(int levelId) {
 		super();
@@ -63,6 +73,10 @@ public class GameScreen extends ScreenAdapter {
 		batch.setProjectionMatrix(camera.combined);
 		
 		laser = new Laser(viewport, xmlParse.components);
+		
+		winBox = new WinBox(viewport, xmlParse.winBoxNb, xmlParse.winBox);
+		
+		status = gameStatus.running;
 	}
 
 	@Override
@@ -90,14 +104,27 @@ public class GameScreen extends ScreenAdapter {
 			toDraw.draw(batch);
 		}
 		
+		if(status == gameStatus.end)
+			gestureInfo2 = "WIN !";
+		
+		
 		assets.font12.setColor(Color.BLACK);
 		assets.font12.drawMultiLine(batch, gestureInfo, 700, 700);
-		assets.font12.drawMultiLine(batch, gestureInfo2, 900, 700);
+		assets.font12.drawMultiLine(batch, gestureInfo2, 1000, 700);
 
 		batch.end();
-
+		
+		//winBox
+		winBox.draw();
+		
 		// laser
 		laser.draw();
+		
+		//Check gameStatus
+		if(winBox.getNbRemaining() <= 0){
+			status = gameStatus.end;
+		}
+
 
 	}
 
@@ -121,7 +148,10 @@ public class GameScreen extends ScreenAdapter {
 
 		@Override
 		public boolean tap(float x, float y, int count, int button) {
-			laser.cancelLast();
+			if(status == gameStatus.running){
+				laser.cancelLast();
+				winBox.update(laser);
+			}
 			return false;
 		}
 
@@ -139,10 +169,10 @@ public class GameScreen extends ScreenAdapter {
 
 		@Override
 		public boolean pan(float x, float y, float deltaX, float deltaY) {
-			gestureInfo = "pan : x=> " + x + " y => " + y + "\n"
-					+ " deltaX => " + deltaX + " deltaY => " + deltaY;
-
-			laser.update(x, y);
+			if(status == gameStatus.running){
+				laser.update(x, y);
+				winBox.update(laser);
+			}
 			
 			return false;
 		}

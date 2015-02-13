@@ -101,11 +101,19 @@ public class Laser {
 		viewPort.project(touchPoint);
 	}
 	
-	public Array<Vector2> getLaserPath(){
-		Array<Vector2> path = new Array<Vector2>();
+	public Array<Segment2D> getLaserPath(){
+		Array<Segment2D> path = new Array<Segment2D>();
 		
+		Vector2 lastPts = null;
 		for(Component comp : compLink){
-			path.add(new Vector2(comp.x + comp.width/2, comp.y + comp.height/2));
+			Vector2 compPts = new Vector2(comp.x + comp.width/2, comp.y + comp.height/2);
+			
+			if(lastPts != null){
+				path.add(new Segment2D(lastPts, compPts));
+			}
+			
+			lastPts = compPts;
+			
 		}
 		
 		return path;

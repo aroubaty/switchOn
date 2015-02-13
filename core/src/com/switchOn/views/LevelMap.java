@@ -115,7 +115,7 @@ public class LevelMap extends ScreenAdapter{
 			crt.addListener(new ClickListener(){
 				@Override
 				public void clicked(InputEvent event, float x, float y) {
-					Gdx.app.log("test", "world load!");
+					((Game) Gdx.app.getApplicationListener()).setScreen(new GameScreen(101));
 				}
 			});
 			

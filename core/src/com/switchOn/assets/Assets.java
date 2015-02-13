@@ -94,7 +94,7 @@ public class Assets {
 		
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("font/Calibri.ttf"));
 		FreeTypeFontParameter param = new FreeTypeFontParameter();
-		param.size = 12;
+		param.size = 25;
 		font12 = generator.generateFont(param); 
 	}
 	

@@ -14,8 +14,8 @@ public class switchOn extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		
-		//setScreen(new MainScreen());
-		setScreen(new GameScreen(101));
+		setScreen(new MainScreen());
+		//setScreen(new GameScreen(101));
 	}
 
 	@Override

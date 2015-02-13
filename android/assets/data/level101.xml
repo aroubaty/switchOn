@@ -7,8 +7,17 @@
 	</used>
 
 	<components>
-		<component id="0" x="100" y="100" rotation="0" width="50" height="50" ></component>
-		<component id="1" x="300" y="550" rotation="0" width="50" height="50"></component>
-		<component id="1" x="1000" y="40" rotation="0" width="50" height="50"></component>
+		<component id="0" x="600" y="400" rotation="0" width="50" height="50" ></component>
+		<component id="1" x="600" y="100" rotation="0" width="50" height="50"></component>
+		<component id="1" x="200" y="400" rotation="0" width="50" height="50"></component>
 	</components>
+	
+	<winBoxs>
+		<winBox nbNeeded= "3">
+			<point x1="400" y1="300" x2="800" y2="300" ></point>
+			<point x1="800" y1="300" x2="800" y2="500" ></point>
+			<point x1="400" y1="500" x2="800" y2="500" ></point>
+			<point x1="400" y1="300" x2="400" y2="500" ></point>
+		</winBox>
+	</winBoxs>
 </level>
